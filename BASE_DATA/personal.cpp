@@ -41,7 +41,7 @@ Personal::Personal(ifstream& fin) {
 }
 
 Personal::~Personal() {
-    cout << "Personal destructor";
+    cout << "Дестр персонал";
 }
 
 void Personal::Edit() {

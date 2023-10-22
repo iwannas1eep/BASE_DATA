@@ -12,7 +12,7 @@ teacher::teacher() {
         getline(cin, this->prepFIO.Name);
         cout << "Отчество: ";
         getline(cin, this->prepFIO.LastName);
-        cout << "Группа: ";
+        cout << "Группы: ";
         cin >> this->groups;
         if (isalpha(this->groups))
             throw 1;
@@ -49,7 +49,7 @@ void teacher::Edit() {
     string s_temp;
     cout << "Выберите параметр для редактирования:" << endl
         << "1 - ФИО." << endl
-        << "2 - Группа." << endl
+        << "2 - Группы." << endl
         << "3 - Дисциплина." << endl
         << "0 - Отмена." << endl << endl;
     cin >> choose;
@@ -108,7 +108,7 @@ void teacher::Save(ofstream& fout) {
 void teacher::Print(ostream& out) {
     out << "Преподаватель: " << endl
         << "Фио: " << this->prepFIO.SurName << " " << this->prepFIO.Name << " " << this->prepFIO.LastName << endl
-        << "Группа: " << this->groups << endl
+        << "Группы: " << this->groups << endl
         << "Дисциплина: " << this->disc << endl
         << "-----------------------------------" << endl;
 }

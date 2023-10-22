@@ -28,8 +28,19 @@ Student::Student() {
         if (isalpha(this->sr_ball))
             throw 3;
     }
-    catch (int) {
-        cout << "Провал!" << endl;
+    catch (int err) {
+        SetErr(true);
+        switch (err) {
+        case 1:
+            cout << "Номер группы может быть только числом!" << endl;
+            break;
+        case 2:
+            cout << "Номер курса может быть только числом!" << endl;
+            break;
+        case 3:
+            cout << "Средний балл может быть только числом!" << endl;
+            break;
+        }
     }
 }
 

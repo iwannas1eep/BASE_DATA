@@ -7,7 +7,6 @@ int main() {
 	Keeper Contain;
 	char menu = 0;
 	setlocale(LC_ALL, "Russian");
-	SetConsoleCP(866);
 	cout << "Áàçà ÂÓÇà:" << endl; // "Áàçà ÂÓÇà" - Database of Universities
 	do {
 		try {
