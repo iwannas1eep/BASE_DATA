@@ -6,7 +6,7 @@ using namespace std;
 int main() {
 	Keeper Contain;
 	char menu = 0;
-	cout << "University Database:" << endl;
+	cout << "Áàçà ÂÓÇà:" << endl;
 	do {
 		try {
 			cout << "Current number of items in the container: " << Contain.GetSize() << "." << endl
