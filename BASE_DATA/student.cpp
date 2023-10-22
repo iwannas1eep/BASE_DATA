@@ -4,40 +4,40 @@ Student::Student() {
     try {
         SetType(1);
         SetErr(false);
-        cout << "Enter student's full name:" << endl
-            << "Sur Name: ";
+        cout << "Введите ФИО:" << endl
+            << "Фамилия: ";
         cin.ignore(256, '\n');
         getline(cin, this->stdFIO.SurName);
-        cout << "Name: ";
+        cout << "Имя: ";
         getline(cin, this->stdFIO.Name);
-        cout << "Last Name: ";
+        cout << "Отчество: ";
         getline(cin, this->stdFIO.LastName);
-        cout << "Group: ";
+        cout << "Группа: ";
         cin >> this->group;
         if (isalpha(this->group))
             throw 1;
-        cout << "Specialty: ";
+        cout << "Специальность: ";
         cin.ignore(256, '\n');
         getline(cin, this->spec);
-        cout << "Course Number: ";
+        cout << "Курс: ";
         cin >> this->course;
         if (isalpha(this->course))
             throw 2;
-        cout << "Average Grade: ";
+        cout << "Средний балл: ";
         cin >> this->sr_ball;
         if (isalpha(this->sr_ball))
             throw 3;
     }
     catch (int) {
-        cout << "Invalid input!" << endl;
+        cout << "Провал!" << endl;
     }
 }
 
 Student::Student(ifstream& fin) {
     SetType(1);
     fin.ignore(256, '\n');
-    getline(fin, this->stdFIO.Name);
     getline(fin, this->stdFIO.SurName);
+    getline(fin, this->stdFIO.Name);
     getline(fin, this->stdFIO.LastName);
     fin >> this->group;
     fin.ignore(256, '\n');
@@ -47,7 +47,7 @@ Student::Student(ifstream& fin) {
 }
 
 Student::~Student() {
-    cout << "Student destructor" << endl;
+    cout << "Дестр студента" << endl;
 }
 
 void Student::Edit() {
@@ -57,61 +57,61 @@ void Student::Edit() {
     char i_temp;
     string s_temp;
     char f_temp;
-    cout << "Select the parameter to edit:" << endl
-        << "1 - Full Name." << endl
-        << "2 - Group." << endl
-        << "3 - Specialty." << endl
-        << "4 - Course Number." << endl
-        << "5 - Average Grade." << endl
-        << "0 - Cancel." << endl << endl;
+    cout << "Выберите параметр для редактирования:" << endl
+        << "1 - ФИО." << endl
+        << "2 - Группа." << endl
+        << "3 - Специальность." << endl
+        << "4 - Курс" << endl
+        << "5 - Средний балл." << endl
+        << "0 - Отмена." << endl << endl;
 
     cin >> choose;
     try {
         switch (choose) {
         case 1:
             cout << "Current: ";
-            cout << this->stdFIO.Name << " "
-                << this->stdFIO.SurName << " "
+            cout << this->stdFIO.SurName << " "
+                << this->stdFIO.Name << " "
                 << this->stdFIO.LastName << endl
-                << "New:  First Name >> ";
+                << "Новое:  Фамилия >> ";
             cin.ignore(256, '\n');
-            getline(cin, fio_temp.Name);
-            cout << "\tLast Name >> ";
             getline(cin, fio_temp.SurName);
-            cout << "\tMiddle Name >> ";
+            cout << "\tИмя >> ";
+            getline(cin, fio_temp.Name);
+            cout << "\tОтчество >> ";
             getline(cin, fio_temp.LastName);
             stdFIO = fio_temp;
             break;
         case 2:
-            cout << "Current: ";
+            cout << "Текущее: ";
             cout << this->group << endl
-                << "New >> ";
+                << "Новое >> ";
             cin >> i_temp;
             if (isalpha(i_temp))
                 throw 1;
             group = i_temp;
             break;
         case 3:
-            cout << "Current: ";
+            cout << "Текущее: ";
             cout << this->spec << endl
-                << "New >> ";
+                << "Новое >> ";
             cin.ignore(256, '\n');
             getline(cin, s_temp);
             spec = s_temp;
             break;
         case 4:
-            cout << "Current: ";
+            cout << "Текущее: ";
             cout << this->course << endl
-                << "New >> ";
+                << "Новое >> ";
             cin >> i_temp;
             if (isalpha(i_temp))
                 throw 2;
             course = i_temp;
             break;
         case 5:
-            cout << "Current: ";
+            cout << "Текущее: ";
             cout << this->sr_ball << endl
-                << "New >> ";
+                << "Новое >> ";
             cin >> f_temp;
             if (isalpha(f_temp))
                 throw 3;
@@ -122,14 +122,14 @@ void Student::Edit() {
         }
     }
     catch (int) {
-        cout << "Invalid input!" << endl;
+        cout << "Провал!" << endl;
     }
 }
 
 void Student::Save(ofstream& fout) {
     fout << GetType() << endl
-        << this->stdFIO.Name << endl
         << this->stdFIO.SurName << endl
+        << this->stdFIO.Name << endl
         << this->stdFIO.LastName << endl
         << this->group << endl
         << this->spec << endl
@@ -138,11 +138,11 @@ void Student::Save(ofstream& fout) {
 }
 
 void Student::Print(ostream& out) {
-    out << "Student:" << endl
-        << "Full Name:" << this->stdFIO.Name << " " << this->stdFIO.SurName << " " << this->stdFIO.LastName << endl
-        << "Group:" << this->group << endl
-        << "Specialty:" << this->spec << endl
-        << "Course Number:" << this->course << endl
-        << "Average Grade:" << this->sr_ball << endl
+    out << "Студент:" << endl
+        << "ФИО:" << this->stdFIO.Name << " " << this->stdFIO.SurName << " " << this->stdFIO.LastName << endl
+        << "Группа:" << this->group << endl
+        << "Специальность:" << this->spec << endl
+        << "Курс:" << this->course << endl
+        << "Средний балл:" << this->sr_ball << endl
         << "---------------------------------" << endl;
 }

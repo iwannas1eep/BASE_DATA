@@ -6,18 +6,19 @@ using namespace std;
 int main() {
 	Keeper Contain;
 	char menu = 0;
-	cout << "База ВУЗа:" << endl;
+	setlocale(LC_ALL, "Russian");
+	cout << "База ВУЗа:" << endl; // "База ВУЗа" - Database of Universities
 	do {
 		try {
-			cout << "Current number of items in the container: " << Contain.GetSize() << "." << endl
-				<< "Select an action:" << endl
-				<< "1 - Add an item." << endl
-				<< "2 - Edit an item." << endl
-				<< "3 - Delete an item." << endl
-				<< "4 - Save data to a file." << endl
-				<< "5 - Load data from a file." << endl
-				<< "6 - Display data from the container." << endl
-				<< "0 - Exit." << endl << endl;
+			cout << "Текущее количество элементов в контейнере: " << Contain.GetSize() << "." << endl
+				<< "Выберите действие:" << endl
+				<< "1 - Добавить элемент." << endl
+				<< "2 - Редактировать элемент." << endl
+				<< "3 - Удалить элемент." << endl
+				<< "4 - Сохранить данные в файл." << endl
+				<< "5 - Загрузить данные из файла." << endl
+				<< "6 - Вывести данные из контейнера." << endl
+				<< "0 - Выход." << endl << endl;
 			cin >> menu;
 			if ((!isdigit(menu)) && ((menu >= 7) || (menu <= -1))) {
 				throw 1;
@@ -46,7 +47,7 @@ int main() {
 			}
 		}
 		catch (int) {
-			cout << "Incorrect input!" << endl;
+			cout << "Некорректный ввод!" << endl; // "Некорректный ввод" - Incorrect input
 		}
 		system("pause");
 		system("cls");

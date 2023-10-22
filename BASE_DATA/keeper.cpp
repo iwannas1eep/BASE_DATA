@@ -2,10 +2,10 @@
 
 int Choose() {
     int x = 0;
-    cout << "Select a class:" << endl
-        << "1 - Students." << endl
-        << "2 - Teachers." << endl
-        << "3 - Personnel." << endl << endl;
+    cout << "Выберите класс:" << endl
+        << "1 - Студенты." << endl
+        << "2 - Преподаватели." << endl
+        << "3 - Персонал." << endl << endl;
     cin >> x;
     return x;
 }
@@ -50,10 +50,10 @@ void Keeper::Add() {
         if (Value)
             delete[] Value;
         Value = temp;
-        cout << "Object added successfully!" << endl;
+        cout << "Объект успешно добавлен!" << endl;
     }
     catch (int) {
-        cout << "The object was not added due to an error." << endl;
+        cout << "Ошибка!" << endl;
     }
 }
 
@@ -85,18 +85,18 @@ void Keeper::Add(int _type, ifstream& fin) {
 void Keeper::Edit() {
     int x;
     if (!size)
-        cout << "The container is empty!" << endl;
+        cout << "Контейнер пуст!" << endl;
     for (int i = 0; i < size; i++) {
         cout << "[" << i + 1 << "] ";
         switch (Value[i]->GetType()) {
         case 1:
-            cout << "Student" << endl;
+            cout << "Студент" << endl;
             break;
         case 2:
-            cout << "Teacher" << endl;
+            cout << "Преподаватель" << endl;
             break;
         case 3:
-            cout << "Personnel" << endl;
+            cout << "Персонал" << endl;
             break;
         default:
             break;
@@ -111,29 +111,29 @@ void Keeper::Edit() {
         x -= 1;
         Value[x]->Edit();
         if ((Value[x]->GetErr()) || (!Value[x]))
-            cout << "Editing failed." << endl;
+            cout << "Провал!" << endl;
         else
-            cout << "Editing completed." << endl;
+            cout << "Успешно!" << endl;
     }
     catch (int) {
-        cout << "The selected item is unavailable." << endl;
+        cout << "Выбранный элемент недоступен!" << endl;
     }
 }
 
 void Keeper::Del() {
     int x;
     if (!size)
-        cout << "The container is empty!" << endl;
+        cout << "Контейнер пуст!" << endl;
     for (int i = 0; i < size; i++) {
         switch (Value[i]->GetType()) {
         case 1:
-            cout << "[" << i + 1 << "] Student." << endl;
+            cout << "[" << i + 1 << "] Студент." << endl;
             break;
         case 2:
-            cout << "[" << i + 1 << "] Teacher." << endl;
+            cout << "[" << i + 1 << "] Преподаватель." << endl;
             break;
         case 3:
-            cout << "[" << i + 1 << "] Personnel." << endl;
+            cout << "[" << i + 1 << "] Персонал." << endl;
             break;
         default:
             break;
@@ -145,7 +145,7 @@ void Keeper::Del() {
     if (size == 1) {
         delete[] Value;
         Value = nullptr;
-        cout << "Deletion successful!" << endl;
+        cout << "Успешно!" << endl;
         size--;
     }
     VYZ** temp = new VYZ * [size - 1];
@@ -158,7 +158,7 @@ void Keeper::Del() {
     delete[] Value;
     Value = temp;
     size--;
-    cout << "Deletion successful!" << endl;
+    cout << "Успешно!" << endl;
 }
 
 void Keeper::Save() {
@@ -167,13 +167,13 @@ void Keeper::Save() {
         Value[i]->Save(fout);
     }
     fout.close();
-    cout << "Saved!" << endl;
+    cout << "Сохранено!" << endl;
 }
 
 void Keeper::Load() {
     ifstream fin("test.txt");
     if (fin.fail())
-        cout << "The file is empty." << endl;
+        cout << "Файл пуст!" << endl;
     int type = 0;
     while (fin) {
         fin >> type;
@@ -183,17 +183,17 @@ void Keeper::Load() {
     }
     fin.close();
     if ((::count == 1) || (::count == 21))
-        cout << "Successfully loaded [" << ::count << "] object." << endl;
+        cout << "Успешно загружен [" << ::count << "]." << endl;
     if (((::count > 1) && (::count < 5)) || ((::count > 21) && (::count < 25)))
-        cout << "Successfully loaded [" << ::count << "] objects." << endl;
+        cout << "Успешно загружен [" << ::count << "]." << endl;
     if ((::count > 4) && (::count < 21))
-        cout << "Successfully loaded [" << ::count << "] objects." << endl;
+        cout << "Успешно загружен [" << ::count << "]." << endl;
     ::count = 0;
 }
 
 ostream& operator<< (ostream& out, Keeper& obj) {
     if (!obj.size) {
-        cout << "The container is empty!" << endl;
+        cout << "Контейнер пуст!" << endl;
         return out;
     }
     for (int i = 0; i < obj.size; i++) {
