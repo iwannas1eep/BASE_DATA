@@ -138,11 +138,11 @@ void Student::Save(ofstream& fout) {
 }
 
 void Student::Print(ostream& out) {
-    out << "Студент:" << endl
-        << "ФИО:" << this->stdFIO.Name << " " << this->stdFIO.SurName << " " << this->stdFIO.LastName << endl
-        << "Группа:" << this->group << endl
-        << "Специальность:" << this->spec << endl
-        << "Курс:" << this->course << endl
-        << "Средний балл:" << this->sr_ball << endl
+    out << "Студент: " << endl
+        << "ФИО: " << this->stdFIO.SurName << " " << this->stdFIO.Name << " " << this->stdFIO.LastName << endl
+        << "Группа: " << this->group << endl
+        << "Специальность: " << this->spec << endl
+        << "Курс: " << this->course << endl
+        << "Средний балл: " << this->sr_ball << endl
         << "---------------------------------" << endl;
 }

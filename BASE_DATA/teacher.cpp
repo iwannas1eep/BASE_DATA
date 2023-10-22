@@ -106,9 +106,9 @@ void teacher::Save(ofstream& fout) {
 }
 
 void teacher::Print(ostream& out) {
-    out << "Преподаватель:" << endl
-        << "Фио:" << this->prepFIO.Name << " " << this->prepFIO.SurName << " " << this->prepFIO.LastName << endl
-        << "Группа:" << this->groups << endl
-        << "Дисциплина:" << this->disc << endl
+    out << "Преподаватель: " << endl
+        << "Фио: " << this->prepFIO.SurName << " " << this->prepFIO.Name << " " << this->prepFIO.LastName << endl
+        << "Группа: " << this->groups << endl
+        << "Дисциплина: " << this->disc << endl
         << "-----------------------------------" << endl;
 }

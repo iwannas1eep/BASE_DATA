@@ -118,10 +118,10 @@ void Personal::Save(ofstream& fout) {
 }
 
 void Personal::Print(ostream& out) {
-    out << "Персонал:" << endl
-        << "Фио:" << this->persFIO.SurName << " " << this->persFIO.Name << " " << this->persFIO.LastName << endl
-        << "Специальность:" << this->spec << endl
-        << "Номер телефона:" << this->tel << endl
-        << "Область ответственности:" << this->obl << endl
+    out << "Персонал: " << endl
+        << "Фио: " << this->persFIO.SurName << " " << this->persFIO.Name << " " << this->persFIO.LastName << endl
+        << "Специальность: " << this->spec << endl
+        << "Номер телефона: " << this->tel << endl
+        << "Область ответственности: " << this->obl << endl
         << "------------------------------" << endl;
 }
